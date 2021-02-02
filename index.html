@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bases Numericas</title>
+    <style>
+        body{
+            background:rgb(209, 251, 255);
+        }
+        div.home{
+            border: 1px solid #000000;
+            background: rgb(248, 248, 248);
+            padding-left: 10px;
+            padding-bottom: 20px;
+            padding-right: 10px;
+            padding-top: 10px;
+            width: fit-content;
+        }
+    </style>
+</head>
+<body>
+    <h1>Conversor de Bases</h1>
+    <div class="home">
+        <form class="Formulario">
+            <label for="n1">Primeiro Número:</label><br/>
+            <input id="n1" type="text">
+            <label for="tb1">Base:</label>
+            <input value=10 id="tb1" type="number">
+            <br/>
+            <br/>
+            <label for="operation">Escolha a operação</label>
+            <select id="operation">
+            <option value="+">Soma (+)</option>
+            <option value="-">Subtração (-)</option>
+            <option value="*">Multiplicação (x)</option>
+            <option value="/">Divisão (/)</option>
+            </select>
+            <br/>
+            <br/>
+            <label for="n2">Primeiro Número:</label><br/>
+            <input id="n2" type="text">
+            <label for="tb2">Base:</label>
+            <input value=10 id="tb2" type="number">
+        </form>
+        <br/>
+        <button onclick="calculate()">Aperte aqui</button>
+        <p id="result">Resultado:</p>
+    </div>
+
+    <script>
+        var n1 = document.getElementById("n1")
+        var n2 = document.getElementById("n2")
+        var tb1 = document.getElementById("tb1")
+        var tb2 = document.getElementById("tb2")
+        var tb3 = document.getElementById("tb3")
+        var operation = document.getElementById("operation")   
+        var res = document.getElementById("result") 
+        function toDecimal(n, b){
+            n = n.toLowerCase()
+            var m = 1
+            var sum = 0
+            var simbols = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+            for(var i=n.length-1; i>=0; i--){
+                sum += simbols.indexOf(n[i])*m
+                m*=b
+            }
+            return sum
+        }
+        function toBase(n, b){
+            return n
+        }
+        function operate(a, b, op){
+            switch(op){
+                case '+':
+                    return a+b;
+                case '-':
+                    return a-b;
+                case '*':
+                    return a*b;
+                case '/':
+                    return a/b;
+            }
+        }
+        function calculate(){
+            var v1 = n1.value
+            var v2 = n2.value
+            var b1 = tb1.value
+            var b2 = tb2.value
+            var op = operation.value
+            v1 = toDecimal(v1,b1)
+            v2 = toDecimal(v2,b2)
+            var r1 = operate(v1, v2, op)
+            var b3 = 10
+            r1 = toBase(r1, b3)
+            res.innerText = "Result: "+String(r1)
+        }
+    </script>
+</body>
+</html>
