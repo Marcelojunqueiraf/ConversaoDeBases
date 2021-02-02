@@ -20,7 +20,9 @@
     </style>
 </head>
 <body>
-    <h1>Conversor de Bases</h1>
+    <header>
+    <h1>Calculadora de bases numéricas</h1>
+    </header>
     <div class="home">
         <form class="Formulario">
             <label for="n1">Primeiro Número:</label><br/>
@@ -38,16 +40,18 @@
             </select>
             <br/>
             <br/>
-            <label for="n2">Primeiro Número:</label><br/>
+            <label for="n2">Segundo Número:</label><br/>
             <input id="n2" type="text"><br/>
             <label for="tb2">Base:</label><br/>
             <input value=10 id="tb2" type="number">
         </form>
         <br/>
-        <button onclick="calculate()">Aperte aqui</button>
+        <button onclick="calculate()">Calcular</button>
         <p id="result">Resultado:</p>
     </div>
-
+    <footer>
+        <p>Código fonte: <link href="https://github.com/Marcelojunqueiraf/ConversaoDeBases">//github.com/Marcelojunqueiraf/ConversaoDeBases</link></p>
+    </footer>
     <script>
         var n1 = document.getElementById("n1")
         var n2 = document.getElementById("n2")
